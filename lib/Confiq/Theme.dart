@@ -5,7 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import '../core/ColorsMang.dart';
 
 class ThemeManger {
-  static final ThemeData Light = ThemeData(
+  static final ThemeData Light = ThemeData
+    (
+    useMaterial3: false,
     scaffoldBackgroundColor: ColorsMang.White,
     appBarTheme: AppBarTheme(
       backgroundColor: ColorsMang.White,
