@@ -24,7 +24,7 @@ class EventlyApp extends StatelessWidget {
           theme: ThemeManger.Light,
           darkTheme: ThemeManger.Dark,
           themeMode: ThemeMode.light,
-          locale: const Locale("en"),
+          locale: Locale("en"),
         );
       },
     );

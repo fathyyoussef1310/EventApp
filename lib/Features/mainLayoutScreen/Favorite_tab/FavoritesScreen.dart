@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-class Layoutscreen extends StatelessWidget {
-  Layoutscreen({super.key});
+class Favoritesscreen extends StatelessWidget {
+  const Favoritesscreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
