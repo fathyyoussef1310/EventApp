@@ -1,5 +1,5 @@
 import 'package:eventapp/Features/mainLayoutScreen/LayoutScreen.dart';
-import 'package:eventapp/Features/mainLayoutScreen/ScreensOfLayout/FavoritesScreen.dart';
+import 'package:eventapp/Features/mainLayoutScreen/Favorite_tab/FavoritesScreen.dart';
 import 'package:eventapp/Features/mainLayoutScreen/ScreensOfLayout/MapScreen.dart';
 import 'package:eventapp/Features/mainLayoutScreen/ScreensOfLayout/profileScreen.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import '../Features/Authentication/LoginScreen.dart';
 import '../Features/Authentication/RegisterScreen.dart';
 import '../Features/CreateEvent/CreateEvent.dart';
-
 class routesManager {
   static const String loginScreen = '/login';
   static const String register = '/register';
@@ -15,9 +14,8 @@ class routesManager {
   static const String mapScreen = '/map';
   static const String favourites = '/favourites';
   static const String profile = "/profile";
-  static const String Home = '\Home'; // kept as is
-  static const String createEvent = '\Event'; // kept as is
-
+  static const String Home = '\Home';
+  static const String createEvent = '\Event';
   static Route? getRoute(RouteSettings settings) {
     switch (settings.name) {
       case loginScreen:

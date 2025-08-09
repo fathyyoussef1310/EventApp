@@ -1,6 +1,6 @@
 import 'package:eventapp/Features/CreateEvent/CreateEvent.dart';
-import 'package:eventapp/Features/mainLayoutScreen/ScreensOfLayout/FavoritesScreen.dart';
-import 'package:eventapp/Features/mainLayoutScreen/ScreensOfLayout/HomeScreen.dart';
+import 'package:eventapp/Features/mainLayoutScreen/Favorite_tab/FavoritesScreen.dart';
+import 'package:eventapp/Features/mainLayoutScreen/ScreensOfLayout/Home_tab/HomeScreen.dart';
 import 'package:eventapp/Features/mainLayoutScreen/ScreensOfLayout/MapScreen.dart';
 import 'package:eventapp/Features/mainLayoutScreen/ScreensOfLayout/profileScreen.dart';
 import 'package:eventapp/core/ColorsMang.dart';
@@ -17,13 +17,12 @@ class Layoutscreen extends StatefulWidget {
 class _LayoutscreenState extends State<Layoutscreen> {
   int cIndex = 0;
 
-  final List<Widget> tabs = const [
+   List<Widget> tabs = [
     Homescreen(),
     Mapscreen(),
     Favoritesscreen(),
     Profilescreen(),
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,21 +30,20 @@ class _LayoutscreenState extends State<Layoutscreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushReplacementNamed(context, routesManager.createEvent);
+          Navigator.pushNamed(context, routesManager.createEvent);
         },
         backgroundColor: ColorsMang.LightBlue,
-        child: const Icon(Icons.add, color: Colors.white),
+        child:Icon(Icons.add, color: Colors.white),
       ),
       bottomNavigationBar: BottomAppBar(
         color: ColorsMang.LightBlue,
         shape:  CircularNotchedRectangle(),
-        notchMargin: 1,
+        notchMargin: 3,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          padding:EdgeInsets.symmetric(horizontal: 10.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              // Left side
               Row(
                 children: [
                   IconButton(
