@@ -74,7 +74,7 @@ class RegisterScreen extends StatelessWidget {
                     Text("Already Have Account ?", style: TextStyle(color: Colors.black),),
                     SizedBox(width: 1.w,),
                     CustomTextButton(onPressed: (){
-                      Navigator.pushReplacementNamed(context, routesManager.LoginScreen);
+                      Navigator.pushReplacementNamed(context, routesManager.loginScreen);
                     },text: "Login",)
                   ] ),
             ],

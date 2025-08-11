@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../core/ColorsMang.dart';
 
 class ThemeManger {
-  static final ThemeData Light = ThemeData
-    (
+  static const String identifier = "ThemeManger_v1";
+  static final ThemeData Light = ThemeData(
     useMaterial3: false,
     scaffoldBackgroundColor: ColorsMang.White,
     appBarTheme: AppBarTheme(
@@ -62,7 +62,10 @@ class ThemeManger {
         ),
       ),
     ),
-
+    textTheme: TextTheme(
+      labelMedium: GoogleFonts.inter(fontSize: 16.sp, fontWeight: FontWeight.bold, color: ColorsMang.LightBlue,),
+      labelSmall: GoogleFonts.inter(fontSize: 16.sp, fontWeight: FontWeight.bold, color: Colors.black,),
+    ),
   );
 
   static final ThemeData Dark = ThemeData(

@@ -39,7 +39,7 @@ class Loginscreen extends StatelessWidget {
                   },text: "Forget Password")),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, routesManager.Layout);
+                  Navigator.pushReplacementNamed(context, routesManager.layout);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: ColorsMang.LightBlue,

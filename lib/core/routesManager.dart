@@ -1,56 +1,62 @@
+import 'package:eventapp/Features/mainLayoutScreen/LayoutScreen.dart';
 import 'package:flutter/cupertino.dart';
-import '../Features/Authentication/LoginScreen.dart';
-import '../Features/Authentication/RegisterScreen.dart';
-import '../Features/CreateEvent/CreateEvent.dart';
-import '../Features/mainLayoutScreen/Favorite_tab/FavoritesScreen.dart';
-import '../Features/mainLayoutScreen/ScreensOfLayout/HomeScreen.dart';
-import '../Features/mainLayoutScreen/ScreensOfLayout/MapScreen.dart';
-import '../Features/mainLayoutScreen/ScreensOfLayout/profileScreen.dart';
-class routesManager {
-  static const String LoginScreen = '\LoginScreen';
-  static const String register = '\register';
-  static const String Layout='\Layout';
-  static const String Home='\Home';
-  static const String Map='\Map';
-  static const String Fav='\Fav';
-  static const String profile='\profile';
-  static const String CreateEvent='\Create';
+import 'package:eventapp/Features/Authentication/LoginScreen.dart';
+import 'package:eventapp/Features/Authentication/RegisterScreen.dart';
+import 'package:eventapp/Features/CreateEvent/CreateEvent.dart';
+import 'package:eventapp/Features/mainLayoutScreen/Favorite_tab/FavoritesScreen.dart';
+import 'package:eventapp/Features/mainLayoutScreen/ScreensOfLayout/Home_tab/HomeScreen.dart';
+import 'package:eventapp/Features/mainLayoutScreen/ScreensOfLayout/MapScreen.dart';
+import 'package:eventapp/Features/mainLayoutScreen/ScreensOfLayout/profileScreen.dart';
+import 'package:flutter/material.dart';
 
-  static Route? getRoute(RouteSettings settings) {
-    switch (settings.name)
-    {
-      case LoginScreen:
+class routesManager {
+  // Route names
+  static const String loginScreen = '/LoginScreen';
+  static const String register = '/register';
+  static const String layout = '/Layout';
+  static const String home = '/Home';
+  static const String map = '/Map';
+  static const String fav = '/Fav';
+  static const String profile = '/profile';
+  static const String createEvent = '/Create';
+
+  static Route<dynamic> getRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case loginScreen:
         return CupertinoPageRoute(builder: (_) => const Loginscreen());
-    }
-    switch (settings.name)
-    {
+
+      case layout:
+        return CupertinoPageRoute(builder: (_) => const LayoutScreen());
+
       case register:
-        return CupertinoPageRoute(builder: (_)=> const RegisterScreen());
-    }
-    switch (settings.name)
-    {
-      case Home:
-        return CupertinoPageRoute(builder: (_)=> const Homescreen());
-    }
-    switch (settings.name)
-    {
-      case Map:
-        return CupertinoPageRoute(builder: (_)=> const Mapscreen());
-    }
-    switch (settings.name)
-    {
-      case Fav:
-        return CupertinoPageRoute(builder: (_)=> const Favoritesscreen());
-    }
-    switch (settings.name)
-    {
+        return CupertinoPageRoute(builder: (_) => const RegisterScreen());
+
+      case home:
+        return CupertinoPageRoute(
+            builder: (_) => const Scaffold(body: Homescreen()));
+
+      case map:
+        return CupertinoPageRoute(
+            builder: (_) => const Scaffold(body: Mapscreen()));
+
+      case fav:
+        return CupertinoPageRoute(
+            builder: (_) => const Scaffold(body: Favoritesscreen()));
+
       case profile:
-        return CupertinoPageRoute(builder: (_)=> const Profilescreen());
-    }
-    switch (settings.name)
-    {
-      case CreateEvent:
-        return CupertinoPageRoute(builder: (_)=> Createevent());
+        return CupertinoPageRoute(
+            builder: (_) => const Scaffold(body: Profilescreen()));
+
+      case createEvent:
+        return CupertinoPageRoute(
+            builder: (_) => const Scaffold(body: Createevent()));
+
+      default:
+        return CupertinoPageRoute(
+          builder: (_) => const Scaffold(
+            body: Center(child: Text('Route not found')),
+          ),
+        );
     }
   }
 }
