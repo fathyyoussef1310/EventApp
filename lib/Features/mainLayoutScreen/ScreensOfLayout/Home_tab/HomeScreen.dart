@@ -1,9 +1,10 @@
 import 'package:eventapp/Features/mainLayoutScreen/ScreensOfLayout/Home_tab/catogery_item_ui.dart';
-import 'package:eventapp/Features/mainLayoutScreen/event_item.dart';
+import 'package:eventapp/Features/mainLayoutScreen/ScreensOfLayout/Home_tab/Models/event_item.dart';
 import 'package:eventapp/core/ColorsMang.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../widgets/CustomTabBar.dart';
 import 'Models/catagory.dart';
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -13,17 +14,6 @@ class Homescreen extends StatefulWidget {
 }
 int selectedIndex=0;
 class _HomescreenState extends State<Homescreen> {
-  List<categoryModel>categorymodels=[
-     categoryModel(name: "All", icon: Icons.all_inclusive),
-    categoryModel(name: " Sports", icon: Icons.bike_scooter_outlined),
-    categoryModel(name: "BirthDay", icon: Icons.cake),
-    categoryModel(name: "Meetings", icon: Icons.laptop),
-    categoryModel(name: "Gaming", icon: Icons.games),
-    categoryModel(name: "Eating", icon: Icons.cookie),
-    categoryModel(name: "Holiday", icon: Icons.holiday_village),
-    categoryModel(name: "Exhibition", icon: Icons.workspace_premium_rounded),
-    categoryModel(name: "BookClub", icon: Icons.book_online),
-  ];
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -106,20 +96,7 @@ class _HomescreenState extends State<Homescreen> {
                 SizedBox(height: 16.h),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
-                  child: DefaultTabController(
-                    length: categorymodels.length,
-                    child: TabBar(
-                      onTap: (value){
-                        setState(() {
-                          selectedIndex=value;
-                        });
-                      },
-                       isScrollable: true,
-                      labelColor: ColorsMang.White,
-                      indicatorColor: Colors.transparent,
-                      tabs: categorymodels.map((categorymodel) => CategoryItem(category: categorymodel,selectedBackgroundColor: ColorsMang.White,unselectedBackgroundColor: Colors.transparent,selectedFourBackgroundColor: Colors.blue,unselectedFourBackgroundColor: Colors.white38,isSelected: selectedIndex == categorymodels.indexOf(categorymodel),)).toList(),
-                    ),
-                  ),
+                  child:Customtabbar(categorymodels: categoryModel.catagoriesall,selectedBackgroundColor: ColorsMang.White,unselectedBackgroundColor: ColorsMang.LightBlue,selectedFourBackgroundColor: ColorsMang.LightBlue,unselectedFourBackgroundColor: ColorsMang.White,),
                 ),
               ],
             ),

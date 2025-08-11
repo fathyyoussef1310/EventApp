@@ -37,6 +37,11 @@ class ThemeManger {
         color: Colors.grey,
         fontWeight: FontWeight.bold,
       ),
+      hintStyle: GoogleFonts.inter(
+        fontSize: 16.sp,
+        fontWeight: FontWeight.w500,
+        color: Colors.grey,
+      ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
