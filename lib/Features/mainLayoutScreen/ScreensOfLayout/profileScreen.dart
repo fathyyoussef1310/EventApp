@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../core/ColorsMang.dart';
+
 typedef Onchange = void Function(String?);
+
 class Profilescreen extends StatefulWidget {
   const Profilescreen({super.key});
 
@@ -12,8 +14,8 @@ class Profilescreen extends StatefulWidget {
 }
 
 class _ProfilescreenState extends State<Profilescreen> {
-  List<String>ThemeMenu=["Light","Dark"];
-  List<String>LangMenu=["Arabic","English"];
+  String selectedTheme = "Light";
+  String selectedLang = "Arabic";
 
   @override
   Widget build(BuildContext context) {
@@ -69,23 +71,27 @@ class _ProfilescreenState extends State<Profilescreen> {
             padding: REdgeInsets.all(17.0),
             child: buildDropDown(
               labelText: "Language",
-              menuitems: LangMenu,
+              menuitems: ["Arabic", "English"],
               onChange: (val) {
-                LangMenu[0]=val!;
-                setState(() {
-                });
+                if (val != null) {
+                  selectedLang = val;
+                  setState(() {});
+                }
               },
+              selecteditemView: selectedLang,
             ),
           ),
           Padding(
             padding: REdgeInsets.all(15.0),
             child: buildDropDown(
+              selecteditemView: selectedTheme,
               labelText: "Theme",
-              menuitems: ThemeMenu,
+              menuitems: ["Dark", "Light"],
               onChange: (val) {
-                ThemeMenu[0]=val!;
-                setState(() {
-                });
+                if (val != null) {
+                  selectedTheme = val;
+                  setState(() {});
+                }
               },
             ),
           ),
@@ -98,16 +104,21 @@ class _ProfilescreenState extends State<Profilescreen> {
     required String labelText,
     required List<String> menuitems,
     required Onchange onChange,
+    required String selecteditemView,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(labelText, style: Theme.of(context).textTheme.labelSmall),
+        Text(labelText, style: Theme
+            .of(context)
+            .textTheme
+            .labelSmall),
         SizedBox(height: 5.h),
         Container(
-          padding: REdgeInsets.all(4.sp),
+          padding: REdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.r),
+            borderRadius: BorderRadius.circular(30.r),
+            // تكبير الـ Border Radius
             border: Border.all(
               color: ColorsMang.LightBlue,
               width: 1.w,
@@ -116,11 +127,16 @@ class _ProfilescreenState extends State<Profilescreen> {
           child: Row(
             children: [
               Text(
-                menuitems[0],
-                style: Theme.of(context).textTheme.labelMedium,
+                selecteditemView,
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .labelMedium,
               ),
               Spacer(),
               DropdownButton<String>(
+                value: selecteditemView,
+                icon: Icon(Icons.arrow_drop_down, color: ColorsMang.LightBlue),
                 items: menuitems.map((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
