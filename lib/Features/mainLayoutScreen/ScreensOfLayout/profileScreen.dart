@@ -73,11 +73,9 @@ class _ProfilescreenState extends State<Profilescreen> {
               labelText: "Language",
               menuitems: ["Arabic", "English"],
               onChange: (val) {
-                if (val != null) {
-                  selectedLang = val;
+                  selectedLang = val!;
                   setState(() {});
-                }
-              },
+                },
               selecteditemView: selectedLang,
             ),
           ),
@@ -88,11 +86,9 @@ class _ProfilescreenState extends State<Profilescreen> {
               labelText: "Theme",
               menuitems: ["Dark", "Light"],
               onChange: (val) {
-                if (val != null) {
-                  selectedTheme = val;
+                  selectedTheme = val!;
                   setState(() {});
                 }
-              },
             ),
           ),
         ],
@@ -109,16 +105,12 @@ class _ProfilescreenState extends State<Profilescreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(labelText, style: Theme
-            .of(context)
-            .textTheme
-            .labelSmall),
+        Text(labelText, style: Theme.of(context).textTheme.labelSmall),
         SizedBox(height: 5.h),
         Container(
           padding: REdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30.r),
-            // تكبير الـ Border Radius
             border: Border.all(
               color: ColorsMang.LightBlue,
               width: 1.w,
@@ -128,14 +120,10 @@ class _ProfilescreenState extends State<Profilescreen> {
             children: [
               Text(
                 selecteditemView,
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .labelMedium,
+                style: Theme.of(context).textTheme.labelMedium,
               ),
               Spacer(),
               DropdownButton<String>(
-                value: selecteditemView,
                 icon: Icon(Icons.arrow_drop_down, color: ColorsMang.LightBlue),
                 items: menuitems.map((String value) {
                   return DropdownMenuItem<String>(
