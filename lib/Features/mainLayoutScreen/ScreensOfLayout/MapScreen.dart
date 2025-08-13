@@ -8,7 +8,7 @@ class Mapscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsMang.LightBlue,
+      backgroundColor: ColorsMang.whiteBlue,
 
     );
   }

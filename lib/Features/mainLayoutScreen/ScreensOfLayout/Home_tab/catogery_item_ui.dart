@@ -22,11 +22,12 @@ class CategoryItem extends StatelessWidget
       padding: EdgeInsets.symmetric(vertical: 10,horizontal: 16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30.r),
-          border: Border.all(color: ColorsMang.White),
+          border: Border.all(color: ColorsMang.white),
           color: isSelected?selectedBackgroundColor : unselectedBackgroundColor,
         ),
         child: Row(
-          children: [
+          children:
+          [
             Icon(category.icon, size: 18.sp,color: isSelected? selectedFourBackgroundColor:unselectedFourBackgroundColor),
             SizedBox(width: 8.sp),
             Text(category.name,style: GoogleFonts.inter(fontSize: 16.sp,fontWeight: FontWeight.w800,color: isSelected? selectedFourBackgroundColor:unselectedFourBackgroundColor),),

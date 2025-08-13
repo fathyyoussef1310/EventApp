@@ -14,15 +14,17 @@ class Createevent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsMang.White,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: ColorsMang.LightBlue,
+          color: Theme.of(context).primaryColorLight
         ),
         centerTitle: true,
         title: Text(
           "Create Event",
-          style: GoogleFonts.inter(color: ColorsMang.LightBlue),
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+            color: Theme.of(context).primaryColorLight,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -34,21 +36,18 @@ class Createevent extends StatelessWidget {
               Image.asset(ImagesManger.SportEvent),
               SizedBox(height: 10.h),
               Customtabbar(
-                categorymodels: categoryModel.catagoriesnoall,
-                selectedBackgroundColor: ColorsMang.LightBlue,
-                unselectedBackgroundColor: Colors.transparent,
-                selectedFourBackgroundColor: ColorsMang.White,
-                unselectedFourBackgroundColor: ColorsMang.LightBlue,
-              ),
+                categorymodels: categoryModel.catagoriesnoall, selectedBackgroundColor: Theme.of(context).secondaryHeaderColor,unselectedBackgroundColor: Theme.of(context).primaryColor,selectedFourBackgroundColor: ColorsMang.blue,unselectedFourBackgroundColor: ColorsMang.whiteBlue,),
               SizedBox(height: 15.h),
               SizedBox(
-                child: Text("Title",style: GoogleFonts.inter(color: Colors.black,fontWeight: FontWeight.w800,fontSize: 16),),
+                child: Text("Title",style:Theme.of(context).textTheme.titleMedium?.copyWith(
+                  color: ColorsMang.grey
+                ),),
                 ),
               SizedBox(height: 8.h),
               TextFormField(
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 12.w),
-                  prefixIcon: Icon(Icons.edit, color: ColorsMang.LightBlue),
+                  prefixIcon: Icon(Icons.edit, color:Theme.of(context).primaryColorDark),
                   hintText: "Event Title",
                   hintStyle: GoogleFonts.inter(color: Colors.grey, fontSize: 14.sp),
                   enabledBorder: OutlineInputBorder(
@@ -56,11 +55,14 @@ class Createevent extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12.r),
                   ),
                   filled: true,
-                  fillColor: ColorsMang.White,
+                  fillColor: Theme.of(context).scaffoldBackgroundColor,
                 ),
               ),
               SizedBox(height: 5.h,),
-              Text("Description",style: GoogleFonts.inter(color: Colors.black,fontWeight: FontWeight.w800,fontSize: 16),),
+              Text("Description",style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                color: ColorsMang.grey
+              ),
+              ),
               SizedBox(height: 3.h,),
               TextFormField(
                 maxLines: 10,
@@ -72,7 +74,7 @@ class Createevent extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12.r),
                   ),
                   filled: true,
-                  fillColor: ColorsMang.White,
+                  fillColor: Theme.of(context).scaffoldBackgroundColor,
                 ),
               ),
               SizedBox(height: 3.h,),
@@ -90,7 +92,7 @@ class Createevent extends StatelessWidget {
               SizedBox(height: 3.h,),
               Row(
                 children: [
-                  Icon(Icons.access_time_rounded, color: ColorsMang.LightBlue),
+                  Icon(Icons.access_time_rounded, color: ColorsMang.blue),
                   SizedBox(width: 4.w),
                   Text("Event time"),
                   Spacer(),
@@ -106,7 +108,6 @@ class Createevent extends StatelessWidget {
               SizedBox(height: 15,),
               Container(
                   decoration: BoxDecoration(
-                    color: ColorsMang.LightBlue,
                     borderRadius: BorderRadius.circular(16.r),
                   ),
                   child: CustomTextButton(text: "Add Event",)),

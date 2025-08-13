@@ -14,7 +14,7 @@ class RegisterScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(title: Text("Register")),
-      backgroundColor: ColorsMang.White,
+      backgroundColor:Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.all(16.0),
@@ -50,9 +50,11 @@ class RegisterScreen extends StatelessWidget {
               ),
               SizedBox(height: 16.h),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, routesManager.register);
+                },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: ColorsMang.LightBlue,
+                  backgroundColor: ColorsMang.blue,
                   padding: EdgeInsets.symmetric(vertical: 14.h),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.r),

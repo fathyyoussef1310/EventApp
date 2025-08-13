@@ -42,7 +42,7 @@ class EventItem extends StatelessWidget {
                       style: GoogleFonts.inter(
                         fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
-                        color: ColorsMang.LightBlue,
+                        color: ColorsMang.blue,
                       ),
                     ),
                     Text(
@@ -50,7 +50,7 @@ class EventItem extends StatelessWidget {
                       style: GoogleFonts.inter(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.normal,
-                        color: ColorsMang.LightBlue,
+                        color: ColorsMang.blue,
                       ),
                     ),
                   ],
@@ -62,18 +62,20 @@ class EventItem extends StatelessWidget {
               width: double.infinity,
               padding: REdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: ColorsMang.White,
+                color: Theme.of(context).cardTheme.color,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(10.r),
                   bottomRight: Radius.circular(10.r),
                 ),
               ),
               child: Row(
-                children :[
-                  Expanded(child: Text("This is a Sport Event  ", style: GoogleFonts.inter(fontSize: 17.sp, fontWeight: FontWeight.w700, color: ColorsMang.LightBlue,),)),
-                  SizedBox(width: 100.w,),
-                  Icon(Icons.favorite_border),
-                ]
+                  children :[
+                    Expanded(child: Text("This is a Sport Event  ", style:Theme.of(context).primaryTextTheme.titleLarge?.copyWith(
+                      color: ColorsMang.grey
+                    ),)),
+                    SizedBox(width: 100.w,),
+                    Icon(Icons.favorite_border),
+                  ]
               ),
             ),
           ],

@@ -13,7 +13,7 @@ class CustomTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        backgroundColor: ColorsMang.LightBlue, // visible background
+        backgroundColor: ColorsMang.blue, // visible background
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.r),

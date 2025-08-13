@@ -35,19 +35,19 @@ class _LayoutScreenState extends State<LayoutScreen> {
           onPressed: () {
             Navigator.pushNamed(context, routesManager.createEvent);
           },
-          backgroundColor: ColorsMang.LightBlue,
-          child: const Icon(Icons.add,size: 30,),
+          backgroundColor: Theme.of(context).primaryColor,
+          child:  Icon(Icons.add,size: 30,),
         ),
       ),
       bottomNavigationBar: BottomAppBar(
         notchMargin: 9,
-        color: ColorsMang.Darkblue,
+        color: ColorsMang.darkBlue,
         shape:  CircularNotchedRectangle(),
         child: SizedBox(
           height: 56,
           child: BottomNavigationBar(
             currentIndex: _selectedIndex,
-            selectedItemColor: ColorsMang.White,
+            selectedItemColor: ColorsMang.white,
             unselectedItemColor: Colors.white30,
             type: BottomNavigationBarType.fixed,
             onTap: (index) {
@@ -75,7 +75,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
                 label: "Profile",
               ),
             ],
-            backgroundColor: ColorsMang.LightBlue,
+            backgroundColor: Theme.of(context).bottomAppBarTheme.color,
           ),
         ),
       ),

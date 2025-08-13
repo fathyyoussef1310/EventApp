@@ -42,7 +42,7 @@ class Loginscreen extends StatelessWidget {
                   Navigator.pushReplacementNamed(context, routesManager.layout);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: ColorsMang.LightBlue,
+                  backgroundColor: ColorsMang.blue,
                   padding: EdgeInsets.symmetric(vertical: 14.h),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.r),

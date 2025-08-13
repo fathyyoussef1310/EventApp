@@ -11,9 +11,7 @@ class Customtabbar extends StatefulWidget {
   Color selectedFourBackgroundColor;
   Color unselectedFourBackgroundColor;
   Customtabbar({super.key,required this.categorymodels,required this.selectedBackgroundColor,required this.selectedFourBackgroundColor,required this.unselectedBackgroundColor,required this.unselectedFourBackgroundColor,});
-List<categoryModel>categorymodels=[
-
-];
+List<categoryModel>categorymodels=[];
 
   @override
   State<Customtabbar> createState() => _CustomtabbarState();
@@ -33,7 +31,7 @@ class _CustomtabbarState extends State<Customtabbar> {
           });
         },
         isScrollable: true,
-        labelColor: ColorsMang.White,
+        labelColor: ColorsMang.white,
         indicatorColor: Colors.transparent,
         tabs: widget.categorymodels.map((categorymodel) => CategoryItem(category: categorymodel,selectedBackgroundColor: widget.selectedBackgroundColor,unselectedBackgroundColor: widget.unselectedBackgroundColor,selectedFourBackgroundColor: widget.selectedFourBackgroundColor,unselectedFourBackgroundColor: widget.unselectedFourBackgroundColor,isSelected: selectedIndextab== widget.categorymodels.indexOf(categorymodel),)).toList(),
       ),

@@ -1,3 +1,4 @@
+import 'package:eventapp/Confiq/Theme.dart';
 import 'package:eventapp/core/ImagesManger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,15 +9,13 @@ typedef Onchange = void Function(String?);
 
 class Profilescreen extends StatefulWidget {
   const Profilescreen({super.key});
-
   @override
   State<Profilescreen> createState() => _ProfilescreenState();
 }
 
 class _ProfilescreenState extends State<Profilescreen> {
   String selectedTheme = "Light";
-  String selectedLang = "Arabic";
-
+  String selectedLang = "عربي";
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -30,7 +29,7 @@ class _ProfilescreenState extends State<Profilescreen> {
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(40.r),
               ),
-              color: ColorsMang.LightBlue,
+              color: ColorsMang.blue,
             ),
             child: Row(
               children: [
@@ -48,7 +47,7 @@ class _ProfilescreenState extends State<Profilescreen> {
                       "UserName",
                       style: GoogleFonts.inter(
                         fontSize: 24,
-                        color: ColorsMang.White,
+                        color: ColorsMang.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -58,7 +57,7 @@ class _ProfilescreenState extends State<Profilescreen> {
                       style: GoogleFonts.inter(
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
-                        color: ColorsMang.White,
+                        color: ColorsMang.white,
                       ),
                     ),
                   ],
@@ -71,7 +70,7 @@ class _ProfilescreenState extends State<Profilescreen> {
             padding: REdgeInsets.all(17.0),
             child: buildDropDown(
               labelText: "Language",
-              menuitems: ["Arabic", "English"],
+              menuitems: ["عربي", "English"],
               onChange: (val) {
                   selectedLang = val!;
                   setState(() {});
@@ -85,10 +84,12 @@ class _ProfilescreenState extends State<Profilescreen> {
               selecteditemView: selectedTheme,
               labelText: "Theme",
               menuitems: ["Dark", "Light"],
-              onChange: (val) {
+                onChange: (val) {
                   selectedTheme = val!;
+                  ThemeController.changeTheme(val!); // 🔹 Apply new theme
                   setState(() {});
                 }
+
             ),
           ),
         ],
@@ -105,15 +106,16 @@ class _ProfilescreenState extends State<Profilescreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(labelText, style: Theme.of(context).textTheme.labelSmall),
+        Text(labelText, style: Theme.of(context).textTheme.titleMedium?.copyWith(
+        )),
         SizedBox(height: 5.h),
         Container(
           padding: REdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30.r),
             border: Border.all(
-              color: ColorsMang.LightBlue,
-              width: 1.w,
+              color: ColorsMang.blue,
+              width: 2.w,
             ),
           ),
           child: Row(
@@ -124,15 +126,20 @@ class _ProfilescreenState extends State<Profilescreen> {
               ),
               Spacer(),
               DropdownButton<String>(
-                icon: Icon(Icons.arrow_drop_down, color: ColorsMang.LightBlue),
+                dropdownColor: Theme.of(context).scaffoldBackgroundColor,
+                icon: Icon(Icons.arrow_drop_down, color: ColorsMang.blue),
                 items: menuitems.map((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
-                    child: Text(value),
+                    child: Text(value,style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                      color: ColorsMang.blue00
+                    ),),
                   );
                 }).toList(),
                 onChanged: onChange,
-                underline: Container(),
+                underline: Container(
+                  color: ColorsMang.black,
+                ),
               ),
             ],
           ),

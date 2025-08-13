@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'Confiq/Theme.dart';
 import 'core/routesManager.dart';
-
 void main() {
   runApp(const EventlyApp());
 }
@@ -17,14 +16,19 @@ class EventlyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          onGenerateRoute: routesManager.getRoute,
-          initialRoute: routesManager.loginScreen,
-          theme: ThemeManger.Light,
-          darkTheme: ThemeManger.Dark,
-          themeMode: ThemeMode.light,
-          locale: Locale("en"),
+        return ValueListenableBuilder<ThemeMode>(
+          valueListenable: ThemeController.themeMode,
+          builder: (context, mode, _) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              onGenerateRoute: routesManager.getRoute,
+              initialRoute: routesManager.loginScreen,
+              theme: ThemeManager.light,
+              darkTheme: ThemeManager.dark,
+              themeMode: ThemeController.themeMode.value,
+              locale: const Locale("en"),
+            );
+          },
         );
       },
     );
